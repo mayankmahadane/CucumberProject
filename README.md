@@ -15,4 +15,4 @@ Build Tool - Maven
 
 Runner File Path - src/test/java/runner/TestRunner.java
 
-Maven Command to run - 
+Maven Command to run - mvn test
