@@ -10,6 +10,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.chrome.ChromeDriverService;
 import utils.BaseClass;
 
 
@@ -19,11 +20,11 @@ public class Hooks extends BaseClass{
 	  public void setUp() throws Exception{
 		  testData = new Properties();
 		  testData.load(new FileInputStream(new File(System.getProperty("user.dir")+"/src/test/java/data/TestData.properties")));
-		  
-		  WebDriverManager.chromedriver().setup();
-		  driver = new ChromeDriver();
+
+		  ChromeDriverService service = ChromeDriverService.createDefaultService();
+		  driver = new ChromeDriver(service);
 		  driver.manage().timeouts().implicitlyWait(Duration.ofMillis(1000));
-		  //driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(5));
+		  driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(5));
 		  driver.manage().window().maximize();
 		  driver.navigate().to(testData.getProperty("App_URL"));
 	  }

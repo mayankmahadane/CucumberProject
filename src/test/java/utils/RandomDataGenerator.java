@@ -7,6 +7,6 @@ public class RandomDataGenerator {
 	public static String getUniqueUserName() {
 		LocalDateTime dateTime = LocalDateTime.now();
 
-		return "User" + Integer.toString(dateTime.getDayOfMonth()) + Integer.toString(dateTime.getMonthValue()) + Integer.toString(dateTime.getHour()) + Integer.toString(dateTime.getMinute());
+		return "User" + dateTime.getDayOfMonth() + dateTime.getMonthValue() + dateTime.getHour() + dateTime.getMinute();
 	}
 }
